@@ -21,7 +21,7 @@ const webpackConfig = {
   output: {
     filename: '[name].js',
     path: paths.project(config.get('dir_dist')),
-    publicPath: '/ClientApp/',
+    publicPath: '/',
     sourceMapFilename: '[file].map'
   },
   plugins: [
@@ -31,7 +31,8 @@ const webpackConfig = {
       hash: true,
       filename: 'index.html',
       inject: 'body'
-    })
+    }),
+    new webpack.DefinePlugin({__DEVELOPMENT__: webapp == 'debug'})
   ],
   resolve: {
     extensions: ['', '.js', '.jsx'],

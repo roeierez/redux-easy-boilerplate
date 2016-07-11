@@ -1,7 +1,8 @@
 import React from 'react';
+import { Route, IndexRoute } from 'react-router';
 
 import Root from './components/Root';
 export default (
-  <Route path="/ClientApp" component={Root}>
+  <Route path="/" component={Root}>
   </Route>
 );
