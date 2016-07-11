@@ -5,7 +5,6 @@ import { unstable_batchedUpdates as batchedUpdates } from 'react-dom';
 import createLogger from 'redux-logger';
 import rootReducer from '../';
 import { promiseMiddleware } from '../middleware/promise';
-import { apiMiddleware } from '../middleware/api';
 
 const __PRODUCTION__ = __PRODUCTION__ || process.env.NODE_ENV === 'production'; // eslint-disable-line
 
@@ -16,10 +15,9 @@ const logger = createLogger({
 });
 
 const middlewares = [
-  apiMiddleware,
   promiseMiddleware(),
   thunkMiddleware,
-  !__PRODUCTION__ && __CLIENT__ && logger,
+  !__PRODUCTION__ && logger,
 ].filter(Boolean);
 
 const createStoreWithMiddleware = applyMiddleware(

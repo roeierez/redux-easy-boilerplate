@@ -3,7 +3,7 @@
 import React from 'react';
 
 /* component styles */
-require('./styles.scss');
+require('./index.less');
 
 const Loading = () => (
   <div className="component-loading">Loading...</div>

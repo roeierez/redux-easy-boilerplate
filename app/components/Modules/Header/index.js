@@ -3,9 +3,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-/* component styles */
-require('./styles.scss');
-
 const Header = () => (
   <div className="header">
     <ul className="header__menu">

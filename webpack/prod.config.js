@@ -1,23 +1,21 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const config = require('../config');
+const paths = config.get('utils_paths');
 
 module.exports = {
   devtool: 'source-map',
-
-  entry: {
-    main: ['./app/index'],
-  },
-
   module: {
     loaders: [{
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css?minimize!postcss-loader!sass-loader'),
+      loader: ExtractTextPlugin.extract('style-loader', 'css?minimize!postcss-loader!less-loader'),
     }],
   },
-
+  output: {
+    path: paths.project(config.get('dir_dist_production'))
+  },
   plugins: [
     new ExtractTextPlugin('bundle.css'),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

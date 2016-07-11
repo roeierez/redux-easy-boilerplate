@@ -3,13 +3,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 
-import * as actionCreators from 'redux/modules';
+import * as actionCreators from '../../redux/modules';
 
 import Loading from 'components/Modules/Loading';
 import Header from 'components/Modules/Header';
-
-/* global styles for app */
-require('./styles/app.scss');
 
 @connect(
   state => ({ ...state.app }),
